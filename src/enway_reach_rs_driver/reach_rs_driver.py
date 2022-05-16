@@ -143,7 +143,7 @@ class ReachRsDriver(object):
                     rospy.logwarn('Lost connection. Trying to reconnect...')
                     self.connect_to_device()
                 else:
-                    self.parse_data(data)
+                    self.parse_data(data.decode())
                     self.connection_status = 'receiving NMEA messages'
             except socket.timeout as t:
                 self.connection_status = 'no NMEA messages received'
